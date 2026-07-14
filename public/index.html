@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>오늘 점심 뭐 먹지?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- 이름 입력 -->
+  <section id="screen-name" class="screen active">
+    <div class="wrap center">
+      <span class="badge">TODAY'S LUNCH</span>
+      <div class="big-emoji">🍽️</div>
+      <h1>오늘 점심 뭐 먹지?</h1>
+      <p class="desc">카드를 넘기면서 마음에 드는 카드를 뽑아주세요.<br>팀원들 응답을 모아 오늘의 메뉴를 정해드려요.</p>
+      <input id="name-input" type="text" placeholder="이름을 입력해주세요" maxlength="12" autocomplete="off">
+      <button class="btn-primary" id="start-btn" disabled>시작하기</button>
+    </div>
+  </section>
+
+  <!-- 카드 덱 화면 (참여/거리/종류/음식종류 공용) -->
+  <section id="screen-deck" class="screen">
+    <div class="wrap">
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="step-count" id="step-count"></div>
+      <h2 class="deck-title" id="deck-title"></h2>
+      <p class="deck-hint">옆으로 넘겨서 마음에 드는 카드를 골라 탭하세요</p>
+      <div class="deck" id="deck"></div>
+    </div>
+  </section>
+
+  <!-- 제출 중 -->
+  <section id="screen-loading" class="screen">
+    <div class="wrap center">
+      <div class="spinner"></div>
+      <p class="desc">응답을 제출하는 중...</p>
+    </div>
+  </section>
+
+  <!-- 결과 -->
+  <section id="screen-result" class="screen">
+    <div class="wrap">
+      <span class="badge">RESULT</span>
+      <h1 class="result-heading">오늘의 추천 메뉴</h1>
+      <p class="desc" id="result-meta"></p>
+
+      <div id="recommend-list" class="recommend-list"></div>
+
+      <h3 class="section-title">카테고리별 응답 현황</h3>
+      <div id="tally-wrap" class="tally-wrap"></div>
+
+      <h3 class="section-title">참여자 (<span id="voter-count">0</span>명)</h3>
+      <div id="voter-list" class="voter-list"></div>
+
+      <button class="btn-outline" id="revote-btn">다시 투표하기</button>
+    </div>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
